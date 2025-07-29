@@ -8,10 +8,10 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               // git url: 'https://github.com/DevasaniNaveen/node-app.git', branch: 'main'
+                sh 'echo passed'
+               //git url: 'https://github.com/DevasaniNaveen/node-app.git', branch: 'main'
             }
         }
-
         stage('Static Code Analysis') {
             steps {
                 withCredentials([string(credentialsId: 'sonarqube', variable: 'SONAR_AUTH_TOKEN')]) {
