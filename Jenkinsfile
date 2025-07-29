@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-               // git url: 'https://github.com/YourUsername/simple-node-app.git', branch: 'main'
+               // git url: 'https://github.com/DevasaniNaveen/node-app.git', branch: 'main'
             }
         }
 
