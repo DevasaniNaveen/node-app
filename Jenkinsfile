@@ -29,6 +29,19 @@ pipeline {
             }
         }
 
+        stage('Docker Cleanup') {
+            steps {
+                sh '''
+                    # Stop and remove any container using port 8082
+                    CONTAINER_ID=$(docker ps -q --filter "publish=8082")
+                    if [ ! -z "$CONTAINER_ID" ]; then
+                      docker stop $CONTAINER_ID
+                      docker rm $CONTAINER_ID
+                    fi
+                '''
+            }
+        }
+
         stage('Docker Run') {
             steps {
                 sh 'docker run -d -p 8082:3000 node-app'
